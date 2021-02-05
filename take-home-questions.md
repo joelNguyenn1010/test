@@ -33,12 +33,36 @@ doSomething()
   .then(finalHandler);
 ```
 
+Answer:
+
+
+```
+doSomething
+|-----------------|
+                  doSomethingElse(undefined)
+                  |------------------|
+                                     finalHandler(undefined)
+                                     |------------------|
+```
+
 #### Puzzle #3
 
 ```js
 doSomething()
   .then(doSomethingElse())
   .then(finalHandler);
+```
+
+
+Answer:
+
+```
+doSomething
+|-----------------|
+                  doSomethingElse(undefined)
+                  |------------------|
+                                     finalHandler(undefined)
+                                     |------------------|
 ```
 
 #### Puzzle #4
