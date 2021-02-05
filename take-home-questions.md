@@ -147,7 +147,37 @@ doSomething
 
    a) Write a regular expression to match Australian phone numbers.  The numbers will be in a mixture of the forms 02xxxxxxxx and +612xxxxxxxx, and there will also be the common usage of hyphens, spaces, and parentheses, so all of those common possibilities must be supported. eg. 02 xxxx xxxx, (02) xxxx-xxxx, +61 2 xxxx xxxx, +61 02 xxxxxxxx, +61 (0)2 xxxx-xxxx
 
+   Assumption:
+   * 61 or +61 is a replacement for 0
+   * we only look for the `02` (ex: 02 2379 5821) format phone number not 04 (ex: 04 2379 5821)
+
+   ```
+    ^[(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+
+   ```
+
+    Explain:
+
+    ^: start with (remove this if you want to find it in all text, ex: "Phone number: `0423795821`" it will match the phone number only but not the text)
+    [(+]: any character within this set which is `(` `+` 
+    {0,2}: that match 0 to 2 
+    (61|0){0,1}: match 0 to 1 either 61 or 0 (used to migrate phone number before using regex and I saw people put phone number with the `0` such as 423795821)
+    Ex: `+61`, `0`,`(0`, `(61`, `61` or `(+61`, etc
+    [) ]*: match 0 or more the close parentheses or a space
+    (\(?0?\)?)*: match optional `(`, `0`, `0`) 
+    (2\)?)+: match at least 1 the `2` with optional `?`. 
+    [0-9\.\- ]+: match the set of number, `.` (something I see phone in this phone format 0423.795.821), and `-`
+
    b) Write an example phone number, for each specific phone number format that your regex would match.
+   ```
+    +612xxxxxxxx        : +61223795821
+    +612.xxxx.xxxx      : +612.2379.5821
+    02XXXXXXXX          : 0223795821
+    02 xxxx xxxx        : 02 2379 5821
+    (02) xxxx-xxxx      : (02) 2379 5821
+    +61 2 xxxx xxxx     : +61 2 2379 5821
+    +61 02 xxxxxxxx     : +61 02 2379 5821
+    +61 (0)2 xxxx-xxxx  : +61 (0)2 2379 5821
+   ```
 
    c) Imagine that the full path of the directory is
    > /var/www/site1/uploads/phnumbers/
