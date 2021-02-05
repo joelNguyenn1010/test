@@ -110,7 +110,6 @@ doSomething
     33
     ...
    ```
-   .
    * `grep -v 1`: the `-v` in `grep` here to select non-matching lines so in this case it will select all the text that not include `1` from the previes command value (`grep 3`). 
    Effect:
    ```
@@ -129,12 +128,12 @@ doSomething
    ```
    3	23	30	32	33	34 ...
    ```
-   ** `paste -s -d+`: merge all value into single line and join them with `+`
+   * `paste -s -d+`: merge all value into single line and join them with `+`
    Effect:
    ```
    3+23+30+32+33+34...
    ```
-   ** `paste -s -d+ -`: The hyphens (`-`) at the end just combining 1 consecutive lines 
+   * `paste -s -d+ -`: The hyphens (`-`) at the end just combining 1 consecutive lines 
 
    * `bc`: used for command line calculator, basically it will calculate the paste value and print it to the screen which is 748
    ```
