@@ -61,7 +61,7 @@ doSomething
 |-----------------|
                   doSomethingElse(undefined)
                   |------------------|
-                                     finalHandler(undefined)
+                                     finalHandler(resultOfDoSomething)
                                      |------------------|
 ```
 
@@ -71,6 +71,18 @@ doSomething
 doSomething()
   .then(doSomethingElse)
   .then(finalHandler);
+```
+
+
+Answer:
+
+```
+doSomething
+|-----------------|
+                  doSomethingElse(resultOfDoSomething)
+                  |------------------|
+                                     finalHandler(resultOfDoSomethingElse)
+                                     |------------------|
 ```
 
 ## Quick challenges
