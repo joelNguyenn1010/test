@@ -95,7 +95,7 @@ doSomething
    Breakdown explain of every command:
 
    Explain:
-   * `(for i in {1..100}; do echo $i; done;) ` : do the loops from 1 to 100 and print it out vertically
+   * `(for i in {1..100}; do echo $i; done;) ` : do the loops from 1 to 100 and print it out using `echo`
    * `|`: execute the preceding statement and connect its stdout the to stdin of the statement which follows. 
    So `(for i in {1..100}; do echo $i; done;) | grep 3 ` mean execute the loop first and then execute the `grep 3` command
    * `grep 3`: The grep command is used to search text. In this case, it will search for all text that include `3`.
