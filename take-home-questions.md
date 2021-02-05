@@ -118,6 +118,10 @@ doSomething
    },array_keys($d),$d));
    ```
    a) what language is it written in?
+
+   ```
+   PHP
+   ```
    
    b) at the point when this statement is executed, which (if any) pre-existing variable(s) does this statement use or rely on?
    
@@ -142,6 +146,21 @@ doSomething
 5. What will this PHP statement print?
    ```
    echo implode(' = ',['9 times 5','4' + '5']);
+   ```
+
+   Anwser:
+
+    implode: join array
+
+    ['9 times 5','4' + '5'] there is two value in this array:
+
+    0: a string with value '9 times 5'
+    1: a int with value 9 (because in PHP it will parse 4 and 5 to int value when use `+`)
+
+   it return a string below:
+
+   ```
+    '9 times 5 = 9'
    ```
 
 6. Using the students array below, write a javascript function to return an object containing:
