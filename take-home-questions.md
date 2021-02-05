@@ -91,6 +91,55 @@ doSomething
 1. What is happening in these Linux commands?  Describe as much as you know about what each symbol means and the effect it will have in the execution of the command, and the named programs.
 
    a) `(for i in {1..100}; do echo $i; done;) | grep 3 | grep -v 1 | paste -s -d+ - | bc`
+
+   Breakdown explain of every command:
+
+   Explain:
+   * `(for i in {1..100}; do echo $i; done;) ` : do the loops from 1 to 100 and print it out vertically
+   * `|`: execute the preceding statement and connect its stdout the to stdin of the statement which follows. 
+   So `(for i in {1..100}; do echo $i; done;) | grep 3 ` mean execute the loop first and then execute the `grep 3` command
+   * `grep 3`: The grep command is used to search text. In this case, it will search for all text that include `3`.
+   Effect:
+   ```
+    3
+    13
+    23
+    30
+    31
+    32
+    33
+    ...
+   ```
+   .
+   * `grep -v 1`: the `-v` in `grep` here to select non-matching lines so in this case it will select all the text that not include `1` from the previes command value (`grep 3`). 
+   Effect:
+   ```
+    3
+    23
+    30
+    32
+    33
+    34
+    35
+    ...
+   ``` 
+   * `paste -s -d+ -`: 
+   ** `paste -s`: merge all value into a single line.
+   Effect:
+   ```
+   3	23	30	32	33	34 ...
+   ```
+   ** `paste -s -d+`: merge all value into single line and join them with `+`
+   Effect:
+   ```
+   3+23+30+32+33+34...
+   ```
+   ** `paste -s -d+ -`: The hyphens (`-`) at the end just combining 1 consecutive lines 
+
+   * `bc`: used for command line calculator, basically it will calculate the paste value and print it to the screen which is 748
+   ```
+   3+23+30+32+33+34... = 748
+   ```
    
    b) `[ ! -f /var/lock/myscript.lock ] && touch /var/lock/myscript.lock && (yum -y update >> /var/log/mylog.log 2>&1; ) && rm -f /var/lock/myscript.lock`
 
@@ -110,6 +159,33 @@ doSomething
 ### Software development
 
 1.	Write a function/method/subroutine to determine if a string starts with an upper-case letter A-Z, *without* using any sort of isUpper()/isLower() or toUpper()/toLower() etc helper function provided by the language.  Your choice of language.
+
+* Language: Javascript
+
+There are two methods here because I don't where whether regex can be used here or not so I provide two answers: one using regex and one just purely javascript
+
+Assumption:
+* The string is follow this format: "Hello world" -> In this case the `H` is the first letter and it upper case so it true
+* "hello World" -> In this case the `h` is the first letter and it not upper case so it false
+
+```
+const is_uppercase_regex = (string) => /^[A-Z]*$/.test(string[0]);
+
+const is_uppercase = (string) => {
+    let value = false;
+
+    const alphabet = 'QWERTYUIOPASDFGHJKLZXCVBNM'
+
+    for (let i = 0; i < alphabet.length; i++) {
+        if(string[0] === alphabet[i]) {
+            value = true
+            break;
+        }
+      }
+
+    return value;
+}
+```
 
 2. Consider this statement:
    ```
