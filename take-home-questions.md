@@ -154,8 +154,8 @@ doSomething
 
     ['9 times 5','4' + '5'] there is two value in this array:
 
-    0: a string with value '9 times 5'
-    1: a int with value 9 (because in PHP it will parse 4 and 5 to int value when use `+`)
+    * position 0: a string with value '9 times 5'
+    * position 1: a int with value 9 (because in PHP it will parse 4 and 5 to int value when use `+`)
 
    it return a string below:
 
