@@ -122,7 +122,7 @@ doSomething
     35
     ...
    ``` 
-   * `paste -s -d+ -`: 
+   ### `paste -s -d+ -`: 
    * `paste -s`: merge all value into a single line.
    Effect:
    ```
