@@ -197,8 +197,10 @@ Assumption:
 * "hello World" -> In this case the `h` is the first letter and it not upper case so it false
 
 ```
-const is_uppercase_regex = (string) => /^[A-Z]*$/.test(string[0]);
-
+const is_uppercase= (string) => /^[A-Z]*$/.test(string[0]);
+```
+and
+```
 const is_uppercase = (string) => {
     let value = false;
 
