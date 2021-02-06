@@ -240,7 +240,7 @@ const is_uppercase = (string) => {
    
    f) describe what is happening in this statement
 
-   * The function is executed the `implode` to join the second args, which the result of `array_map` return
+   * The function executes the `implode` to join the second args, which the result of `array_map` return
 
    * `array_map` take the first args as a callback function to run for each element in each array and number of arrays accepted in this case there are two arrays passed to the the callback. The array of `array_keys($d)` (array_keys will return an array of all the keys of array `$d`) and the actual array `$d`
 
