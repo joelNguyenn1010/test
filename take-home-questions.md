@@ -229,7 +229,7 @@ const is_uppercase = (string) => {
    
    b) at the point when this statement is executed, which (if any) pre-existing variable(s) does this statement use or rely on?
 
-   It will execute when the an array $d is defined (ex: $d = array(1,2,3)). In another words, the statement is rely on variable $d and it type Array
+   `It will execute when the an array $d is defined (ex: $d = array(1,2,3)). In another words, the statement is rely on variable $d and it type Array`
    
    c) after this statement has executed, which (if any) variable(s) have been initialised or modified by the statement?
    
@@ -287,7 +287,7 @@ const is_uppercase = (string) => {
    ```
   Assumption:
   * There can only be two most frequent numbers in the array (array like this `[2, 2, 1, 1, 3, 3]` with three frequency will not be accepted)
-  
+
    Anwser:
    ```
     func twoMostFrequent(nums []int) []int {
