@@ -235,8 +235,18 @@ const is_uppercase = (string) => {
    c) after this statement has executed, which (if any) variable(s) have been initialised or modified by the statement?
    
    d) taking your answer from b), give simple example value(s) for each used/relied-upon variable.  There is not a single correct answer, rather you should make an educated guess based on your interpretation of what the statement is doing.
+
+   * `$d`: `array( "hei-ght" => "100", "wi-dth" => "200" )`
+   * `array_keys($d)`: `array( 0 => "hei-ght" , 1 => "wi-dth")`
+   * `$b`: has value of second args which is `array_keys($d)`, first iteration will be `hei-ght` and second iteration will be `wi-dth`
+   * `$c`: has value of third args which is `$d`, fourth iteration will be `100` and third iteration will be `200`
+   * `str_replace(array('-','_',','), '', $b) . "x{$c}";`: will return `heightx100` and `widthx200`
+   * `array_map`: result will be an array with value as `array( 0 => "heightx100", 1 => "widthx200")`
+   * `$a`: will be the value of the join from `implode` which is a string: `heightx100,widthx200`
    
    e) what would be the output or effect of the statement, if you used your example value(s) from d) ?
+
+   output: A string and it value is `heightx100,widthx200`
    
    f) describe what is happening in this statement
 
@@ -256,13 +266,13 @@ const is_uppercase = (string) => {
       ...
     }
    ```
-   from example above, $b should have value of array `array_keys($d)` ('height' and 'width') and $c should have value of array `$d` ('100' and '200')
+   from example above, $b has value of array `array_keys($d)` ('height' and 'width') and $c has value of array `$d` ('100' and '200')
 
    * `array_map` will return the value of `return str_replace(array('-','_',','), '', $b) . "x{$c}";`, where `str_replace` take the first args to search (it will search for `-`, `_`, `,`) and second args to replace it with `''` (empty value)
 
    and it will concatenate the value from `str_replace` to `"x${$c}"` where `${c}` with complex (curly) syntax will return `$c` value
 
-   Example: so from the example above, the `$a` should have value:
+   Example: so from the example above, the `$a` has value:
 
    ```
     [
