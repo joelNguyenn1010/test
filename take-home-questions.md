@@ -240,6 +240,9 @@ const is_uppercase = (string) => {
    `It will execute when the an array $d is defined (ex: $d = array(1,2,3)). In another words, the statement is rely on variable $d and it type Array`
    
    c) after this statement has executed, which (if any) variable(s) have been initialised or modified by the statement?
+   ```
+    Variable $a have been initalised
+   ```
    
    d) taking your answer from b), give simple example value(s) for each used/relied-upon variable.  There is not a single correct answer, rather you should make an educated guess based on your interpretation of what the statement is doing.
 
