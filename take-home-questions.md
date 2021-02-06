@@ -123,7 +123,7 @@ doSomething
     ...
    ``` 
    * `paste -s -d+ -`: 
-   ** `paste -s`: merge all value into a single line.
+   * `paste -s`: merge all value into a single line.
    Effect:
    ```
    3	23	30	32	33	34 ...
