@@ -190,7 +190,7 @@ doSomething
 
 Language: Javascript
 
-There are two methods here because I don't where whether regex can be used here or not so I provide two answers: one using regex and one just purely javascript
+There are two methods here because I don't whether regex can be used here so I provided two answers: one using regex and one just purely javascript
 
 Assumption:
 * The string is follow this format: "Hello world" -> In this case the `H` is the first letter and it upper case so it true
