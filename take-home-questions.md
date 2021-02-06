@@ -229,6 +229,8 @@ const is_uppercase = (string) => {
    ```
    
    b) at the point when this statement is executed, which (if any) pre-existing variable(s) does this statement use or rely on?
+
+   It will execute when the an array $d is defined (ex: $d = array(1,2,3)). In another words, the statement is rely on variable $d and it type Array
    
    c) after this statement has executed, which (if any) variable(s) have been initialised or modified by the statement?
    
@@ -237,6 +239,37 @@ const is_uppercase = (string) => {
    e) what would be the output or effect of the statement, if you used your example value(s) from d) ?
    
    f) describe what is happening in this statement
+
+   * The function is executed the `implode` to join the second args, which the result of `array_map` return
+
+   * `array_map` take the first args as a callback function to run for each element in each array and number of arrays accepted in this case there are two arrays passed to the the callback. The array of `array_keys($d)` (array_keys will return an array of all the keys of array `$d`) and the actual array `$d`
+
+   Example: if there the `$d` value is: `$d = array( "height" => "100", "width" => "200" )`
+   then the array_map will look like this:
+    ```
+    array_keys ( callback, ["height", "width"] , ["height" => "100", "width" => "200"] )
+
+    ```
+   * Callback function accepts match the number of arrays passed to `array_map` in this case is two. 
+   ```
+    array_map(function($b,$c) {
+      ...
+    }
+   ```
+   from example above, $b should have value of array `array_keys($d)` ('height' and 'width') and $c should have value of array `$d` ('100' and '200')
+
+   * `array_map` will return the value of `return str_replace(array('-','_',','), '', $b) . "x{$c}";`, where `str_replace` take the first args to search (it will search for `-`, `_`, `,`) and second args to replace it with `''` (empty value)
+
+   and it will concatenate the value from `str_replace` to `"x${$c}"` where `${c}` with complex (curly) syntax will return `$c` value
+
+   Example: so from the example above, the `$a` should have value:
+
+   ```
+    [
+      0 => heightx100, // First iteration (`height is the value of str_replace` + "x" + `100 is value of $c`)
+      1 => widthx200   // Second iteration (`width is the value of str_replace` + "x" + `200 is value of $c`)
+    ]
+   ```
 
 3. Write a function in Go which returns the top two most frequent numbers from a list, in order of frequency first. For example:
    ```
