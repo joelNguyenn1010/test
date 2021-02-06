@@ -188,7 +188,7 @@ doSomething
 
 1.	Write a function/method/subroutine to determine if a string starts with an upper-case letter A-Z, *without* using any sort of isUpper()/isLower() or toUpper()/toLower() etc helper function provided by the language.  Your choice of language.
 
-* Language: Javascript
+Language: Javascript
 
 There are two methods here because I don't where whether regex can be used here or not so I provide two answers: one using regex and one just purely javascript
 
