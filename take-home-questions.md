@@ -285,8 +285,10 @@ const is_uppercase = (string) => {
    Given the list [1, 3, 3, 5, 5, 6, 6, 5, 3, 3]
    It should return [3, 5]
    ```
+  Assumption:
+  * There can only be two most frequent numbers in the array (array like this `[2, 2, 1, 1, 3, 3]` with three frequency will not be accepted)
+  
    Anwser:
-
    ```
     func twoMostFrequent(nums []int) []int {
 
@@ -310,6 +312,7 @@ const is_uppercase = (string) => {
 
         for _, value := range nums {
 
+          // For checking if the element exist in the hash
           _, ok := hash[value]
 
           if !ok {
