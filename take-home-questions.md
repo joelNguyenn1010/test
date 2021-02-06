@@ -148,7 +148,7 @@ doSomething
 
    Assumption:
    * 61 or +61 is a replacement for 0
-   * we only look for the `02` (ex: 02 2379 5821) format phone number not 04 (ex: 04 2379 5821)
+   * we only look for the `02` (ex: 02 2379 5821) format phone number (04 2379 5821 will not be accepted)
 
    ```
     ^[(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+
