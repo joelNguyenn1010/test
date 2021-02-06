@@ -122,12 +122,12 @@ doSomething
     35
     ...
    ``` 
-   * `paste -s`: merge all value into a single line.
+   * `paste -s`: merge the files in sequentially manner (`-s`: serial).
    Effect:
    ```
    3	23	30	32	33	34 ...
    ```
-   * `paste -s -d+`: merge all value into single line and join them with `+`
+   * `paste -s -d+`: `-d+` (delimiter) mean specify a list of characters to be used as delimiters in this case is the `+`. In another words, join them with `+`
    Effect:
    ```
    3+23+30+32+33+34...
@@ -140,6 +140,12 @@ doSomething
    ```
    
    b) `[ ! -f /var/lock/myscript.lock ] && touch /var/lock/myscript.lock && (yum -y update >> /var/log/mylog.log 2>&1; ) && rm -f /var/lock/myscript.lock`
+
+   Answer:
+   * `[ ! -f /var/lock/myscript.lock ]`: check if the file in `/var/lock/myscript.lock` does not exist. `-f` here means file only (not directory)
+   * `&& touch /var/lock/myscript.lock`: if the file not exist from above if statement then create that file (`/var/lock/myscript.lock`)
+   * `&& (yum -y update >> /var/log/mylog.log 2>&1; )`: update yum package but `>>` means keep writing in mylog.log. `2>&1` means writing all the yum update errors (stderr) into mylog.log
+   * `rm -f /var/lock/myscript.lock`: force remove the `/var/lock/myscript.lock`. `-f` mean force
 
 
 2. There is a directory, containing a large tree of subdirectories and files.  Scattered throughout these files are Australian phone numbers, and we want to harvest them – we want to end up with a simple list of the phone numbers.
@@ -290,7 +296,7 @@ const is_uppercase = (string) => {
   Assumption:
   * There can only be two most frequent numbers in the array (array like this `[2, 2, 1, 1, 3, 3]` with three frequency will not be accepted)
 
-   Anwser:
+   Answer:
    ```
     func twoMostFrequent(nums []int) []int {
 
@@ -351,7 +357,7 @@ const is_uppercase = (string) => {
    echo implode(' = ',['9 times 5','4' + '5']);
    ```
 
-   Anwser:
+   Answer:
 
     implode: join array
 
@@ -430,7 +436,7 @@ Expected output:
 }
 ```
 
-Anwser
+Answer
 
 ```
 const data = require('./students.json');
