@@ -157,7 +157,7 @@ doSomething
    * we only look for the `02` (ex: 02 2379 5821) format phone number (04 2379 5821 will not be accepted)
 
    ```
-    [(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+
+    ^[(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+
    ```
 
     Explain:
@@ -210,11 +210,11 @@ Assumption:
 * The string is follow this format: "Hello world" -> In this case the `H` is the first letter and it upper case so it true
 * "hello World" -> In this case the `h` is the first letter and it not upper case so it false
 
-```
+```js
 const is_uppercase= (string) => /^[A-Z]*$/.test(string[0]);
 ```
 and
-```
+```js
 const is_uppercase = (string) => {
     let value = false;
 
@@ -232,7 +232,7 @@ const is_uppercase = (string) => {
 ```
 
 2. **Consider this statement:**
-   ```
+   ```php
    $a = implode(',',array_map(function($b,$c) {
      return str_replace(array('-','_',','), '', $b) . "x{$c}";
    },array_keys($d),$d));
@@ -308,7 +308,7 @@ const is_uppercase = (string) => {
   * There can only be two most frequent numbers in the array (array like this `[2, 2, 1, 1, 3, 3]` with three frequency will not be accepted)
 
    Answer:
-   ```
+   ```go
     func twoMostFrequent(nums []int) []int {
 
         // Hashmap to hold the count of the element
@@ -368,7 +368,7 @@ const is_uppercase = (string) => {
    * This is acceptable, because Koala website don't expose the API Key to the URL or browser history
 
 5. **What will this PHP statement print?**
-   ```
+   ```php
    echo implode(' = ',['9 times 5','4' + '5']);
    ```
 
@@ -453,7 +453,7 @@ Expected output:
 
 Answer
 
-```
+```javascript
 const data = require('./students.json');
 
 const totalStudent = (students) => {
