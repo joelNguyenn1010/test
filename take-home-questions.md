@@ -157,7 +157,7 @@ doSomething
    * we only look for the `02` (ex: 02 2379 5821) format phone number (04 2379 5821 will not be accepted)
 
    ```
-    ^[(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+
+    [(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+
    ```
 
     Explain:
@@ -188,6 +188,14 @@ doSomething
    > /var/www/site1/uploads/phnumbers/
 
    **Write a single-line or simple command that you could run from the shell (ideally Linux), to apply this regular expression to the files in the directory tree, and result in the simple list of phone numbers, one phone number per line.**
+
+   Assumption:
+   under dir phnumbers are number of files and file name is the phone number 
+   ex:`/var/www/site1/uploads/phnumbers/+6123795821)`, `/var/www/site1/uploads/phnumbers/04237958521)`, `/var/www/site1/uploads/phnumbers/+61 (0)2 2379 5821)`
+
+   ```
+    find /var/www/site1/uploads/phnumbers/ | grep -oP '[^phnumbers]+' | grep -oP '[(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+'
+   ```
 
 
 ### Software development
