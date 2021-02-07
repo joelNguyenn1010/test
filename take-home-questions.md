@@ -90,7 +90,7 @@ doSomething
 ### Shell/CLI
 1. **What is happening in these Linux commands?  Describe as much as you know about what each symbol means and the effect it will have in the execution of the command, and the named programs**.
 
-   a) `(for i in {1..100}; do echo $i; done;) | grep 3 | grep -v 1 | paste -s -d+ - | bc`
+   **a)** `(for i in {1..100}; do echo $i; done;) | grep 3 | grep -v 1 | paste -s -d+ - | bc`
 
    Breakdown explain of every command:
 
@@ -139,7 +139,7 @@ doSomething
    3+23+30+32+33+34... = 748
    ```
    
-   b) `[ ! -f /var/lock/myscript.lock ] && touch /var/lock/myscript.lock && (yum -y update >> /var/log/mylog.log 2>&1; ) && rm -f /var/lock/myscript.lock`
+   **b)**: `[ ! -f /var/lock/myscript.lock ] && touch /var/lock/myscript.lock && (yum -y update >> /var/log/mylog.log 2>&1; ) && rm -f /var/lock/myscript.lock`
 
    Answer:
    * `[ ! -f /var/lock/myscript.lock ]`: check if the file in `/var/lock/myscript.lock` does not exist. `-f` here means file only (not directory)
@@ -148,9 +148,9 @@ doSomething
    * `rm -f /var/lock/myscript.lock`: force remove the `/var/lock/myscript.lock`. `-f` mean force
 
 
-2. There is a directory, containing a large tree of subdirectories and files.  Scattered throughout these files are Australian phone numbers, and we want to harvest them – we want to end up with a simple list of the phone numbers.
+2. **There is a directory, containing a large tree of subdirectories and files.  Scattered throughout these files are Australian phone numbers, and we want to harvest them – we want to end up with a simple list of the phone numbers.**
 
-   a) Write a regular expression to match Australian phone numbers.  The numbers will be in a mixture of the forms 02xxxxxxxx and +612xxxxxxxx, and there will also be the common usage of hyphens, spaces, and parentheses, so all of those common possibilities must be supported. eg. 02 xxxx xxxx, (02) xxxx-xxxx, +61 2 xxxx xxxx, +61 02 xxxxxxxx, +61 (0)2 xxxx-xxxx
+   **a) Write a regular expression to match Australian phone numbers.  The numbers will be in a mixture of the forms 02xxxxxxxx and +612xxxxxxxx, and there will also be the common usage of hyphens, spaces, and parentheses, so all of those common possibilities must be supported. eg. 02 xxxx xxxx, (02) xxxx-xxxx, +61 2 xxxx xxxx, +61 02 xxxxxxxx, +61 (0)2 xxxx-xxxx**
 
    Assumption:
    * 61 or +61 is a replacement for 0
@@ -172,7 +172,7 @@ doSomething
     * `(2\)?)+`: match at least 1 the `2` with optional `?`. 
     * `[0-9\.\- ]+`: match the set of number, `.` (something I see phone in this phone format 0423.795.821), and `-`
 
-   b) Write an example phone number, for each specific phone number format that your regex would match.
+   **b) Write an example phone number, for each specific phone number format that your regex would match.**
    ```
     +612xxxxxxxx        : +61223795821
     +612.xxxx.xxxx      : +612.2379.5821
@@ -184,15 +184,15 @@ doSomething
     +61 (0)2 xxxx-xxxx  : +61 (0)2 2379 5821
    ```
 
-   c) Imagine that the full path of the directory is
+   **c) Imagine that the full path of the directory is**
    > /var/www/site1/uploads/phnumbers/
-   
-   Write a single-line or simple command that you could run from the shell (ideally Linux), to apply this regular expression to the files in the directory tree, and result in the simple list of phone numbers, one phone number per line.
+
+   **Write a single-line or simple command that you could run from the shell (ideally Linux), to apply this regular expression to the files in the directory tree, and result in the simple list of phone numbers, one phone number per line.**
 
 
 ### Software development
 
-1.	Write a function/method/subroutine to determine if a string starts with an upper-case letter A-Z, *without* using any sort of isUpper()/isLower() or toUpper()/toLower() etc helper function provided by the language.  Your choice of language.
+1.	**Write a function/method/subroutine to determine if a string starts with an upper-case letter A-Z, *without* using any sort of isUpper()/isLower() or toUpper()/toLower() etc helper function provided by the language.  Your choice of language.**
 
 Language: Javascript
 
@@ -223,28 +223,28 @@ const is_uppercase = (string) => {
 }
 ```
 
-2. Consider this statement:
+2. **Consider this statement:**
    ```
    $a = implode(',',array_map(function($b,$c) {
      return str_replace(array('-','_',','), '', $b) . "x{$c}";
    },array_keys($d),$d));
    ```
-   a) what language is it written in?
+   **a) what language is it written in?**
 
    ```
    PHP
    ```
    
-   b) at the point when this statement is executed, which (if any) pre-existing variable(s) does this statement use or rely on?
+   **b) at the point when this statement is executed, which (if any) pre-existing variable(s) does this statement use or rely on?**
 
    `It will execute when the an array $d is defined (ex: $d = array(1,2,3)). In another words, the statement is rely on variable $d and it type Array`
    
-   c) after this statement has executed, which (if any) variable(s) have been initialised or modified by the statement?
+   **c) after this statement has executed, which (if any) variable(s) have been initialised or modified by the statement?**
    ```
     Variable $a have been initalised
    ```
    
-   d) taking your answer from b), give simple example value(s) for each used/relied-upon variable.  There is not a single correct answer, rather you should make an educated guess based on your interpretation of what the statement is doing.
+   **d) taking your answer from b), give simple example value(s) for each used/relied-upon variable.  There is not a single correct answer, rather you should make an educated guess based on your interpretation of what the statement is doing.**
 
    * `$d`: `array( "hei-ght" => "100", "wi-dth" => "200" )`
    * `array_keys($d)`: `array( 0 => "hei-ght" , 1 => "wi-dth")`
@@ -254,11 +254,11 @@ const is_uppercase = (string) => {
    * `array_map`: result will be an array with value as `array( 0 => "heightx100", 1 => "widthx200")`
    * `$a`: will be the value of the join from `implode` which is a string: `heightx100,widthx200`
    
-   e) what would be the output or effect of the statement, if you used your example value(s) from d) ?
+   **e) what would be the output or effect of the statement, if you used your example value(s) from d)?**
 
    output: A string and it value is `heightx100,widthx200`
    
-   f) describe what is happening in this statement
+   **f) describe what is happening in this statement**
 
    * The function executes the `implode` to join the second args, which the result of `array_map` return
 
@@ -291,7 +291,7 @@ const is_uppercase = (string) => {
     ]
    ```
 
-3. Write a function in Go which returns the top two most frequent numbers from a list, in order of frequency first. For example:
+3. **Write a function in Go which returns the top two most frequent numbers from a list, in order of frequency first. For example:**
    ```
    Given the list [1, 3, 3, 5, 5, 6, 6, 5, 3, 3]
    It should return [3, 5]
@@ -351,15 +351,15 @@ const is_uppercase = (string) => {
       }
    ```
 
-4. Go to one of the Koala websites (au.koala.com, jp.koala.com)
+4. **Go to one of the Koala websites (au.koala.com, jp.koala.com)**
 
-   a) can you find our Shopify Storefront API key?  If so, what is it?
+   **a) can you find our Shopify Storefront API key?  If so, what is it?**
    * Yes: `2893a926da7237b81af272bc47dc3491`. Found it under request headers (`x-shopify-storefront-access-token`) to graphql server
 
-   b) based on what you found in a), is this an acceptable state-of-affairs for a modern eCommerce website?  Why or why not?
+   **b) based on what you found in a), is this an acceptable state-of-affairs for a modern eCommerce website?  Why or why not?**
    * This is acceptable, because Koala website don't expose the API Key to the URL or browser history
 
-5. What will this PHP statement print?
+5. **What will this PHP statement print?**
    ```
    echo implode(' = ',['9 times 5','4' + '5']);
    ```
@@ -379,7 +379,7 @@ const is_uppercase = (string) => {
     '9 times 5 = 9'
    ```
 
-6. Using the students array below, write a javascript function to return an object containing:
+6. **Using the students array below, write a javascript function to return an object containing:**
 
   - The name of the class as the key.
   - The total attended lessons for each class.
