@@ -352,9 +352,12 @@ const is_uppercase = (string) => {
    ```
 
 4. Go to one of the Koala websites (au.koala.com, jp.koala.com)
+
    a) can you find our Shopify Storefront API key?  If so, what is it?
-   Yes: `2893a926da7237b81af272bc47dc3491`. Found it under request headers (`x-shopify-storefront-access-token`) to graphql server
+   * Yes: `2893a926da7237b81af272bc47dc3491`. Found it under request headers (`x-shopify-storefront-access-token`) to graphql server
+   
    b) based on what you found in a), is this an acceptable state-of-affairs for a modern eCommerce website?  Why or why not?
+   * This custom headers is acceptable, because Koala website don't expose the API Key to the URL or browser history
 
 5. What will this PHP statement print?
    ```
