@@ -197,6 +197,11 @@ doSomething
     find /var/www/site1/uploads/phnumbers/ | grep -oP '[^phnumbers]+' | grep -oP '[(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+'
    ```
 
+   Explain:
+   * `find /var/www/site1/uploads/phnumbers/`: to find all the files in that directory.
+   * `grep -oP '[^phnumbers]+'`: grap only the value after `phnumbers`
+   * ` grep -oP '[(+]{0,2}(61|0){1}[) ]*(\(?0?\)?)*(2\)?)+[0-9\.\- ]+'`: search and printout to the terminal
+
 
 ### Software development
 
